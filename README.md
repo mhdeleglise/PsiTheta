@@ -16,11 +16,11 @@ and execute
 
 > make
 
-We will get the two executable programms tst_psi  and   tst_theta
+We will get the two executable programms psi  and   theta
 
 The command
 
-> tst_theta 1000000000000 100
+> theta 1000000000000 100
 
 computes theta(1000000000000) with 100 decimal places, rounded to the
 nearest value. If you omit the number of decimal places, the default
@@ -28,7 +28,7 @@ value is 25.
 
 Examples:
 
-> tst_theta 1234567890
+> theta 1234567890
 
 gives
 
@@ -36,14 +36,15 @@ gives
 
 While
 
-> tst_theta 1234567890 100
+> theta 1234567890 100
 
 gives
 
 > 1.234518946373189641192934340523247504502720741909842124778080972936152059737170653995781075599578447e9
 
-It works on a PC using linux Ubunto or a macbook. 
-GNU MP and GNU MPFR must be installed on this computer.
+It works on a PC 64 bit  using linux Ubunto or a mac 64bits with an
+not too old version of mac os x.
+GNU MP and GNU MPFR must be installed on these computers.
 
 # Reférences
 
