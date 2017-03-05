@@ -1,15 +1,14 @@
+#include<iomanip>
 #include<cmath>
 #include"sieve_slices.h"
-#include<mpfr.h>
-
+#include"mpfr.h"
 
 int main(int argc, char* argv[]) {
 
   long N= atol(argv[1]);
-  long nbits= (argc > 2) ? atol(argv[2]) : 128;
-  mpfr_set_default_prec(nbits);
-
-  cout << "N = " << N << endl;
+  long decimal_prec=(argc > 2) ? atol(argv[2]) : 15;
+  long nbits= 3.5 * decimal_prec + 16;
+  mpfr_set_default_prec(nbits+16);
 
   mpfr_t tmp;
   mpfr_t res;
@@ -17,7 +16,7 @@ int main(int argc, char* argv[]) {
   mpfr_init_set_si(tmp,0,MPFR_RNDN);
   
   long wsize=1000000;
-  cout << "Creation d'un prime generator de taille " << wsize << endl;
+  //cout << "Creation d'un prime generator de taille " << wsize << endl;
   prime_generator pg(100000,wsize);
   
   long cnte=0;
@@ -32,7 +31,6 @@ int main(int argc, char* argv[]) {
     mpfr_add(res,res,tmp,MPFR_RNDN);
     p=pg.next_prime();
   }
-  mpfr_printf("theta= %.35Re\n",res);
+  mpfr_out_str(stdout,10,decimal_prec,res, MPFR_RNDN);printf("\n");
   return 0;
-
 }
