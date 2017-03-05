@@ -14,13 +14,13 @@ OBJ=$(patsubst %.cc, %.o, $(SRC))
 	$(CXX) -c $^
 
 theta_naive: theta_naive.cpp
-	$(CXX) -o theta_naive theta_naive.cpp $(OBJ) -lgmpxx -lgmp -lmpfr
+	$(CXX) -o theta_naive theta_naive.cpp $(OBJ) $(LFLAGS) -lgmpxx -lgmp -lmpfr
 
 psi: tst_psi.cpp
-	$(CXX) -o psi tst_psi.cpp $(OBJ)  -lgmpxx -lgmp -lmpfr
+	$(CXX) -o psi tst_psi.cpp $(OBJ) $(LFLAGS)  -lgmpxx -lgmp -lmpfr
 
 theta: tst_theta.cpp
-	$(CXX) -o theta tst_theta.cpp $(OBJ)  -lgmpxx -lgmp -lmpfr
+	$(CXX) -o theta tst_theta.cpp $(OBJ) $(LFLAGS) -lgmpxx -lgmp -lmpfr
 
 clean:
 	rm -f *.o psi theta_naive theta
